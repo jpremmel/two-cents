@@ -36,4 +36,21 @@ describe('currentUserReducer', () => {
     });
   });
 
+  test('Should remove current user upon log out', () => {
+    const { id, firstName, lastName, emailAddress, password, linkedinUrl, otherUrl, bio } = sampleUser;
+    action = {
+      type: 'LOG_OUT'
+    };
+    expect(currentUserReducer({
+      id: id,
+      firstName: firstName,
+      lastName: lastName,
+      emailAddress: emailAddress,
+      password: password,
+      linkedinUrl: linkedinUrl,
+      otherUrl: otherUrl,
+      bio: bio
+    }, action)).toEqual({});
+  });
+
 });
