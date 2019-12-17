@@ -15,7 +15,8 @@ namespace TwoCentsAPI.Models
   {
     public User()
     {
-      
+      this.MatchedUsers = new HashSet<MentorMentee>();
+      this.Jobs = new HashSet<JobUser>();
     }
 
     public int UserId { get; set; }
@@ -28,6 +29,7 @@ namespace TwoCentsAPI.Models
     public string PasswordHash { get; set; }
     public string Password { get; set; }
     public string Token { get; set; }
-
+    public ICollection<MentorMentee> MatchedUsers { get; }
+    public ICollection<JobUser> Jobs { get; }
   }
 }
