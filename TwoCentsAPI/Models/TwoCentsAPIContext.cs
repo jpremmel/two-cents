@@ -8,7 +8,8 @@ namespace TwoCentsAPI.Models
 
     public DbSet<User> Users { get; set; }
     public DbSet<Job> Jobs { get; set; }
-    public DbSet<MentorMentee> MentorMenteeMatches { get; set; }
+    public DbSet<MentorMenteePair> MentorMenteePairs { get; set; }
+    public DbSet<JobUser> JobUsers { get; set; }
 
     protected override void OnModelCreating(ModelBuilder builder)
     {

@@ -15,8 +15,12 @@ namespace TwoCentsAPI.Models
   {
     public User()
     {
-      this.MatchedUsers = new HashSet<MentorMentee>();
+      // this.Mentors = new HashSet<MentorMenteePair>();
+      // this.Mentees = new HashSet<MentorMenteePair>();
+      this.MatchedUsers = new HashSet<MentorMenteePair>();
       this.Jobs = new HashSet<JobUser>();
+      // this.JobsInterested = new HashSet<JobUser>();
+      // this.JobsExperienced = new HashSet<JobUser>();
     }
 
     public int UserId { get; set; }
@@ -29,7 +33,11 @@ namespace TwoCentsAPI.Models
     public string PasswordHash { get; set; }
     public string Password { get; set; }
     public string Token { get; set; }
-    public ICollection<MentorMentee> MatchedUsers { get; }
+    public ICollection<MentorMenteePair> MatchedUsers { get; set; }
+    // public ICollection<MentorMenteePair> Mentors { get; set; }
+    // public ICollection<MentorMenteePair> Mentees { get; set; }
     public ICollection<JobUser> Jobs { get; }
+    // public ICollection<JobUser> JobsInterested { get; }
+    // public ICollection<JobUser> JobsExperienced { get; }
   }
 }
