@@ -25,6 +25,14 @@ namespace TwoCentsAPI.Controllers
             _db = db;
         }
 
+        [AllowAnonymous]
+        [HttpGet]
+        public ActionResult<IEnumerable<Job>> GetAllJobs()
+        {
+            var jobs = _db.Jobs.ToList();
+            return jobs;
+        }
+
         [Authorize]
         [HttpGet]
         public ActionResult<IEnumerable<Job>> GetUserJobsInterested()
@@ -50,5 +58,17 @@ namespace TwoCentsAPI.Controllers
                 .ToList();
             return jobs;
         }
+
+        // [Authorize]
+        // [HttpPost]
+        // public ActionResult<int> Post([FromBody] string[] jobTitles)
+        // {
+        //     var identity = (ClaimsIdentity)User.Identity;
+        //     var foundId = identity.FindFirst(ClaimTypes.Name).Value;
+        //     for (int i = 0; i < jobTitles.Length; i++)
+        //     {
+
+        //     }
+        // }
     }
 }
