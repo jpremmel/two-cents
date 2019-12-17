@@ -25,6 +25,30 @@ namespace TwoCentsAPI.Controllers
             _db = db;
         }
 
-        
+        [Authorize]
+        [HttpGet]
+        public ActionResult<IEnumerable<Job>> GetUserJobsInterested()
+        {
+            var identity = (ClaimsIdentity)User.Identity;
+            var foundId = identity.FindFirst(ClaimTypes.Name).Value;
+            var jobs = _db.Jobs
+                .Where(j => j.Users
+                    .Any(u => u.UserId.ToString() == foundId && !u.Mentor))
+                .ToList();
+            return jobs;
+        }
+
+        [Authorize]
+        [HttpGet]
+        public ActionResult<IEnumerable<Job>> GetUserJobsExperienced()
+        {
+            var identity = (ClaimsIdentity)User.Identity;
+            var foundId = identity.FindFirst(ClaimTypes.Name).Value;
+            var jobs = _db.Jobs
+                .Where(j => j.Users
+                    .Any(u => u.UserId.ToString() == foundId && u.Mentor))
+                .ToList();
+            return jobs;
+        }
     }
 }

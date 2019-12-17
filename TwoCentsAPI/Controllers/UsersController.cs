@@ -48,5 +48,15 @@ namespace TwoCentsAPI.Controllers
             _db.Users.Add(newUser);
             _db.SaveChanges();
         }
+
+        [Authorize]
+        [HttpGet]
+        public ActionResult<User> GetUserProfile()
+        {
+            var identity = (ClaimsIdentity)User.Identity;
+            var foundId = identity.FindFirst(ClaimTypes.Name).Value;
+            var user = _db.Users.FirstOrDefault(u => u.UserId.ToString() == foundId);
+            return user;
+        }
     }
 }
