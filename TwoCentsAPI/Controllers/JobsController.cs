@@ -12,7 +12,7 @@ using TwoCentsAPI.Services;
 
 namespace TwoCentsAPI.Controllers
 {
-    [Route("[controller]")]
+    [Route("api/[controller]")]
     [ApiController]
     public class JobsController : ControllerBase
     {
@@ -26,7 +26,7 @@ namespace TwoCentsAPI.Controllers
         }
 
         [AllowAnonymous]
-        [HttpGet]
+        [HttpGet("all")]
         public ActionResult<IEnumerable<Job>> GetAllJobs()
         {
             var jobs = _db.Jobs.ToList();
@@ -34,7 +34,7 @@ namespace TwoCentsAPI.Controllers
         }
 
         [Authorize]
-        [HttpGet]
+        [HttpGet("interested")]
         public ActionResult<IEnumerable<Job>> GetUserJobsInterested()
         {
             var identity = (ClaimsIdentity)User.Identity;
@@ -47,7 +47,7 @@ namespace TwoCentsAPI.Controllers
         }
 
         [Authorize]
-        [HttpGet]
+        [HttpGet("experienced")]
         public ActionResult<IEnumerable<Job>> GetUserJobsExperienced()
         {
             var identity = (ClaimsIdentity)User.Identity;
