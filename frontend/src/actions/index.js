@@ -1,22 +1,20 @@
+import ApiHelper from './ApiHelper';
+
+const api = new ApiHelper();
 
 export const attemptLogin = (credentials) => {
   return (dispatch) => {
     console.log(credentials);
-    return fetch(`http://localhost:5000/api/Users/authenticate`).then(
-      response => response.json(),
-      error => console.log('Error occurred', error)
-    ).then(function (json) {
-      if (json.error) {
-        console.log('Error code: ', json.error.code);
-        console.log('Error message: ', json.error.message);
-        //dispatch something?
-      } else {
-        console.log('RESPONSE:', json);
-        dispatch({ type: 'LOG_IN' });
-      }
+    return api.apiAttemptLogin(credentials).then(response => {
+        let parsedResponse = JSON.parse(response);
+        console.log('JSON RESPONSE: ', parsedResponse);
+        return parsedResponse;
+      }, error => console.log('Error occurred', error))
+      .then(parsedResponse => {
+        console.log(parsedResponse);
+        dispatch(login(parsedResponse));
     }, error => {
       console.log('Error occurred', error);
-      //dispatch something?
     });
   };
 }
