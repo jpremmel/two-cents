@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import { login } from '../actions';
+import { attemptLogin } from '../actions';
 
 class LoginPage extends React.Component {
   state = {
@@ -18,6 +18,7 @@ class LoginPage extends React.Component {
   handleSubmit = (e) => {
     e.preventDefault();
     console.log(this.state);
+    this.props.attemptLogin(this.state);
   }
 
   render() {
@@ -46,9 +47,10 @@ class LoginPage extends React.Component {
   }
 };
 
-// LoginPage.propTypes = {
-//   dispatch: PropTypes.func
-// };
+const mapDispatchToProps = (dispatch) => {
+  return {
+    attemptLogin: (creds) => dispatch(attemptLogin(creds))
+  }
+}
 
-// export default connect()(LoginPage);
-export default LoginPage;
+export default connect(null, mapDispatchToProps)(LoginPage);

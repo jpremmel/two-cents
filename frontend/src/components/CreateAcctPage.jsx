@@ -73,7 +73,7 @@ class CreateAcctPage extends React.Component {
             placeholder='Say a bit about yourself' 
             className='form-control'
             onChange={this.handleChange} />
-          <button type='submit' className='btn btn-light'>Create Account</button>
+          <button /*type='submit'*/ className='btn btn-light'>Create Account</button>
         </form>
       </div>
     );

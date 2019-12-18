@@ -8,19 +8,19 @@ import rootReducer from './reducers/index';
 import middlewareLogger from './middleware/middleware-logger';
 import thunkMiddleware from 'redux-thunk';
 
-// const store = createStore(rootReducer, applyMiddleware(middlewareLogger, thunkMiddleware));
+const store = createStore(rootReducer, applyMiddleware(middlewareLogger, thunkMiddleware));
 
-// let unsubscribe = store.subscribe(() =>
-//   console.log('Store: ', store.getState())
-// );
+let unsubscribe = store.subscribe(() =>
+  console.log('Store: ', store.getState())
+);
 
 const render = (Component) => {
   ReactDOM.render(
-    // <Provider store={store}>
+    <Provider store={store}>
       <HashRouter>
           <Component/>
       </HashRouter>,
-    // </Provider>,
+    </Provider>,
     document.getElementById('react-app-root')
   );
 };
