@@ -12,7 +12,6 @@ const App = () => {
   return (
     <div>
       <Navbar />
-      <div className='container'>
         <Switch>
           <Route exact path='/' render={() => <HomePage />} />
           <Route path='/create-account' render={() => <CreateAcctPage />} />
@@ -20,7 +19,6 @@ const App = () => {
           <Route path='/profile' render={() => <ProfilePage />} />
           <Route path='/edit-profile' render={() => <EditProfilePage />} />
         </Switch>
-      </div>
     </div>
   );
 };
