@@ -5,7 +5,14 @@ import { NavLink } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { connect } from 'react-redux';
 
-const Navbar = () => {
+const Navbar = (props) => {
+  const { currentUser } = props;
+  let links = null;
+  if (Object.entries(currentUser).length != 0) {
+    links = <LoggedInLinks />
+  } else {
+    links = <LoggedOutLinks />
+  }
   return (
     <nav className='navbar navbar-expand navbar-light'>
       <div className='container'>
@@ -22,21 +29,15 @@ const Navbar = () => {
           aria-label='Toggle navigation'>
           <span className='navbar-toggler-icon'></span>
         </button>
-        <div className='collapse navbar-collapse' id='navbarNavAltMarkup'>
-          <div className='navbar-nav'>
-            <LoggedInLinks />
-            <LoggedOutLinks />
-          </div>
-        </div>
+        {links}
       </div>
     </nav>
   );
 };
 
 const mapStateToProps = (state) => {
-  console.log(state);
   return {
-
+    currentUser: state.currentUser
   };
 };
 
