@@ -1,4 +1,6 @@
 import React from 'react';
+import { connect } from 'react-redux';
+import { createUser } from '../actions';
 
 class CreateAcctPage extends React.Component {
   state = {
@@ -19,7 +21,7 @@ class CreateAcctPage extends React.Component {
 
   handleSubmit = (e) => {
     e.preventDefault();
-    console.log(this.state);
+    this.props.createUser(this.state);
   }
 
   render() {
@@ -80,4 +82,10 @@ class CreateAcctPage extends React.Component {
   }
 };
 
-export default CreateAcctPage;
+const mapDispatchToProps = (dispatch) => {
+  return {
+    createUser: (newUser) => dispatch(createUser(newUser))
+  }
+}
+
+export default connect(null, mapDispatchToProps)(CreateAcctPage);

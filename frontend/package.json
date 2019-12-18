@@ -6,8 +6,8 @@
   "scripts": {
     "test": "jest; exit 0",
     "start": "webpack-dev-server",
-    "lint": "eslint src/**/** & exit 0",
-    "lint-fix": "eslint src/**/** --fix & exit 0",
+    "lint": "eslint src/** & eslint src/**/** & exit 0",
+    "lint-fix": "eslint src/** & eslint src/**/** --fix & exit 0",
     "build": "webpack"
   },
   "author": "",

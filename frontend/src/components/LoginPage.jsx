@@ -1,6 +1,5 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import PropTypes from 'prop-types';
 import { attemptLogin } from '../actions';
 
 class LoginPage extends React.Component {
@@ -17,7 +16,6 @@ class LoginPage extends React.Component {
 
   handleSubmit = (e) => {
     e.preventDefault();
-    console.log(this.state);
     this.props.attemptLogin(this.state);
   }
 

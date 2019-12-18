@@ -5,18 +5,18 @@ export const attemptLogin = (credentials) => {
   return dispatch => {
     console.log(credentials);
     return api.apiAttemptLogin(credentials).then(response => {
-        let parsedResponse = JSON.parse(response);
-        console.log('JSON RESPONSE: ', parsedResponse);
-        return parsedResponse;
-      }, error => console.log('Error occurred', error))
+      let parsedResponse = JSON.parse(response);
+      console.log('JSON RESPONSE: ', parsedResponse);
+      return parsedResponse;
+    }, error => console.log('Error occurred:', error))
       .then(parsedResponse => {
         console.log(parsedResponse);
         dispatch(login(parsedResponse));
       }, error => {
-        console.log('Error occurred', error);
+        console.log('Error occurred:', error);
       });
   };
-}
+};
 
 export const login = user => ({
   type: 'LOG_IN',
@@ -31,15 +31,13 @@ export const createUser = (newUser) => {
   return dispatch => {
     console.log(newUser);
     return api.apiCreateNewUser(newUser).then(response => {
-      let parsedResponse = JSON.parse(response);
-      console.log('JSON RESPONSE: ', parsedResponse);
-      return parsedResponse;
-    }, error => console.log('Error occurred', error))
-    .then(parsedResponse => {
-      console.log(parsedResponse);
-
-    }, error => {
-      console.log('Error occurred', error);
-    });
+      //dispatch something?
+      return response;
+    }, error => console.log('Error occurred:', error))
+      .then(response => {
+        console.log(response);
+      }, error => {
+        console.log('Error occurred:', error);
+      });
   };
-}
+};
