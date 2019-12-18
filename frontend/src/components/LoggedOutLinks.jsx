@@ -14,8 +14,6 @@ const LoggedOutLinks = () => {
         </NavLink>
         </div>
       </div>
-          
-        
     </div>
   );
 };
