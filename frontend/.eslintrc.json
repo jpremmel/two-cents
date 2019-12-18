@@ -21,7 +21,7 @@
     ],
     "linebreak-style": [
       "warn",
-      "windows"
+      "unix"
     ],
     "no-console": "warn",
     "quotes": [
