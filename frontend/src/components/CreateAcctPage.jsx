@@ -25,16 +25,37 @@ class CreateAcctPage extends React.Component {
   }
 
   render() {
+    const titleStyle = {
+      textAlign: 'center',
+      fontFamily: 'Heebo, sans-serif',
+      color: '#404040'
+    };
+    const formWidth = {
+      width: '70%',
+      display: 'block',
+      marginLeft: 'auto',
+      marginRight: 'auto'
+    };
+    const inputStyle = {
+      marginBottom: '15px'
+    };
+    const btnStyle = {
+      display: 'block',
+      marginLeft: 'auto',
+      marginRight: 'auto',
+      fontFamily: 'Heebo, sans-serif'
+    };
     return (
-      <div>
-        <h3>Create An Account</h3>
-        <form onSubmit={this.handleSubmit}>
+      <div className='container'>
+        <h2 style={titleStyle}>Create An Account</h2><br/>
+        <form onSubmit={this.handleSubmit} style={formWidth}>
           <input 
             id='firstName'
             type='text' 
             placeholder='First name' 
             className='form-control' 
             required='required'
+            style={inputStyle}
             onChange={this.handleChange} />
           <input 
             id='lastName'
@@ -42,6 +63,7 @@ class CreateAcctPage extends React.Component {
             placeholder='Last name' 
             className='form-control' 
             required='required'
+            style={inputStyle}
             onChange={this.handleChange} />
           <input 
             id='email'
@@ -49,6 +71,7 @@ class CreateAcctPage extends React.Component {
             placeholder='Email address' 
             className='form-control' 
             required='required'
+            style={inputStyle}
             onChange={this.handleChange} />
           <input 
             id='password'
@@ -56,26 +79,30 @@ class CreateAcctPage extends React.Component {
             placeholder='Password' 
             className='form-control' 
             required='required'
+            style={inputStyle}
             onChange={this.handleChange} />
           <input 
             id='linkedin'
             type='text' 
             placeholder='LinkedIn URL' 
             className='form-control'
+            style={inputStyle}
             onChange={this.handleChange} />
           <input 
             id='otherUrl'
             type='text' 
             placeholder='Other URL (ie. personal website, portfolio)' 
             className='form-control'
+            style={inputStyle}
             onChange={this.handleChange} />
           <textarea 
             id='bio'
             type='text' 
             placeholder='Say a bit about yourself' 
             className='form-control'
+            style={inputStyle}
             onChange={this.handleChange} />
-          <button /*type='submit'*/ className='btn btn-light'>Create Account</button>
+          <button className='btn btn-light' style={btnStyle}>Create Account</button>
         </form>
       </div>
     );
