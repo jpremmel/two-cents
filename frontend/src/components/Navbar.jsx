@@ -13,11 +13,16 @@ const Navbar = (props) => {
   } else {
     links = <LoggedOutLinks />
   }
+  const logoStyle = {
+    fontFamily: 'Heebo, sans-serif',
+    color: '#1f3c88',
+    fontSize: '42px'
+  };
   return (
     <nav className='navbar navbar-expand navbar-light'>
       <div className='container'>
-        <NavLink className='navbar-brand' to='/'>
-          Two Cents
+        <NavLink className='navbar-brand' to='/' style={logoStyle}>
+          TwoCents
         </NavLink>
         <button
           className='navbar-toggler'
