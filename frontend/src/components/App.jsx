@@ -17,7 +17,6 @@ const App = () => {
           <Route path='/create-account' render={() => <CreateAcctPage />} />
           <Route path='/login' render={() => <LoginPage />} />
           <Route path='/profile' render={() => <ProfilePage />} />
-          <Route path='/edit-profile' render={() => <EditProfilePage />} />
         </Switch>
     </div>
   );
