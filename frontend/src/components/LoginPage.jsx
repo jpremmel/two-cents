@@ -20,16 +20,38 @@ class LoginPage extends React.Component {
   }
 
   render() {
+    const titleStyle = {
+      textAlign: 'center',
+      fontFamily: 'Heebo, sans-serif',
+      color: '#404040',
+      marginTop: '20px'
+    };
+    const formWidth = {
+      width: '70%',
+      display: 'block',
+      marginLeft: 'auto',
+      marginRight: 'auto'
+    };
+    const inputStyle = {
+      marginBottom: '15px'
+    };
+    const btnStyle = {
+      display: 'block',
+      marginLeft: 'auto',
+      marginRight: 'auto',
+      fontFamily: 'Heebo, sans-serif'
+    };
     return (
-      <div>
-        <h3>Log in</h3>
-        <form onSubmit={this.handleSubmit}>
+      <div className='container'>
+        <h2 style={titleStyle}>Log in</h2><br/>
+        <form onSubmit={this.handleSubmit} style={formWidth}>
           <input 
             id='email'
             type='email' 
             placeholder='Email address' 
             className='form-control' 
             required='required'
+            style={inputStyle}
             onChange={this.handleChange} />
           <input 
             id='password' 
@@ -37,8 +59,9 @@ class LoginPage extends React.Component {
             placeholder='Password' 
             className='form-control' 
             required='required'
+            style={inputStyle}
             onChange={this.handleChange} />
-          <button /*type='submit'*/ className='btn btn-light'>Log in</button>
+          <button className='btn btn-light' style={btnStyle}>Log in</button>
         </form>
       </div>
     );

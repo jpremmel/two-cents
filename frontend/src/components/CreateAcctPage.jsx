@@ -28,7 +28,8 @@ class CreateAcctPage extends React.Component {
     const titleStyle = {
       textAlign: 'center',
       fontFamily: 'Heebo, sans-serif',
-      color: '#404040'
+      color: '#404040',
+      marginTop: '20px'
     };
     const formWidth = {
       width: '70%',
